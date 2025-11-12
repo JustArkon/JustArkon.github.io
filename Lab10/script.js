@@ -1,4 +1,5 @@
 const size = 3;
+const maxSpins = 3;
 const emojis = ["🍒", "🍋", "🍉", "⭐", "🍇"];
 
 function getPlayerName() {
@@ -19,7 +20,6 @@ function spin(slots) {
   for(let row = 0; row < size; row++){
     let available = [...emojis];
     for(let col = 0; col< size; col++){
-        console.log(row, col, available)
         let i = Math.floor(Math.random() * available.length); 
         slots[col][row].textContent = available[i];
         available.splice(i,1);
@@ -60,22 +60,33 @@ function checkWin(slots) {
 }
 
 function play(ui) {
+  ui.spinCount++;
   spin(ui.slots);
+
   if (checkWin(ui.slots)) {
     ui.spinButton.disabled = true;
-    ui.showWinMessage();
+    ui.showMessage("You won! 🎉", "green");
+  } else if (ui.spinCount >= maxSpins) {
+    ui.spinButton.disabled = true;
+    ui.showMessage(`You lost! (${ui.spinCount}/${maxSpins} spins) ❌`, "red");
+  } else {
+    ui.showMessage(`Spin ${ui.spinCount}/${maxSpins}`);
   }
 }
 
-function reset(ui){
-    spin(ui.slots);
-    ui.spinButton.disabled = false;
-    ui.hideWinMessage();
+function reset(ui) {
+  ui.spinCount = 0;
+  spin(ui.slots);
+  ui.spinButton.disabled = false;
+  ui.showMessage(`Spin ${ui.spinCount}/${maxSpins}`);
 }
 
 function main() {
   const name = getPlayerName();
   const ui = build(name, size);
+
+  ui.spinCount = 0;
+  ui.showMessage(`Spin ${ui.spinCount}/${maxSpins}`);
 
   spin(ui.slots);
 

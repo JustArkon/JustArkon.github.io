@@ -9,7 +9,7 @@ function build(username, size = 3) {
     
     const winMessage = document.createElement("div");
     winMessage.id = "win-message";
-    winMessage.style.display = "none";
+    winMessage.style.display = "block";
     container.appendChild(winMessage);
 
     const grid = document.createElement("div");
@@ -42,14 +42,11 @@ function build(username, size = 3) {
     spinButton.textContent = "Spin 🎰";
     buttonContainer.appendChild(spinButton);
 
-    function showWinMessage() {
-        winMessage.textContent = "Congratulations! You won!";
-        winMessage.style.display = "block";
+    function showMessage(message, color = "#402218") {
+        winMessage.textContent = message;
+        winMessage.style.color = color;
     }
 
-    function hideWinMessage() {
-        winMessage.style.display = "none";
-    }
 
-    return { slots, spinButton, resetButton, showWinMessage, hideWinMessage };
+    return { slots, spinButton, resetButton, showMessage};
 }
