@@ -16,9 +16,12 @@ function getPlayerName() {
 }
 
 function spin(slots) {
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      slots[i][j].textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  for(let row = 0; row < size; row++){
+    let available = emojis;
+    for(let col = 0; col< size; row++){
+        let i = Math.floor(Math.random() * available.length); 
+        slots[col][row] = available[i];
+        available.splice(i,1);
     }
   }
 }
@@ -29,21 +32,6 @@ function checkRows(slots) {
     if (slots[i].every(slot => slot.textContent === first)) {
       return true;
     }
-  }
-  return false;
-}
-
-function checkCols(slots) {
-  for (let j = 0; j < size; j++) {
-    let colWin = true;
-    const first = slots[0][j].textContent;
-    for (let i = 1; i < size; i++) {
-      if (slots[i][j].textContent !== first) {
-        colWin = false;
-        break;
-      }
-    }
-    if (colWin) return true;
   }
   return false;
 }
@@ -67,7 +55,7 @@ function checkDiagonals(slots) {
 }
 
 function checkWin(slots) {
-  return checkRows(slots) || checkCols(slots) || checkDiagonals(slots);
+  return checkRows(slots) || checkDiagonals(slots);
 }
 
 function play(ui) {
