@@ -27,8 +27,10 @@ const answers = [
 
 
 function handleSubmit() {
+  const pattern=/[A-Za-zА-ЯІіЇїЄєа-я][A-Za-zА-ЯІіЇїЄєа-я\s]*\?/;
   const question = elements.input.value.trim();
-  if(!question || !question.endsWith("?")){
+  console.log(pattern.test(question));
+  if(!pattern.test(question)){
     elements.input.value = '';
     elements.circle.textContent = "Try asking other question";
     return;
@@ -36,7 +38,6 @@ function handleSubmit() {
 
   const answer = answers[Math.floor(Math.random() * answers.length)];
   elements.circle.textContent = answer;
-  elements.input.value = '';
 }
 
 elements.btn.addEventListener('click', handleSubmit);
