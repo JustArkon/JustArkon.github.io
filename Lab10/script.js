@@ -17,10 +17,11 @@ function getPlayerName() {
 
 function spin(slots) {
   for(let row = 0; row < size; row++){
-    let available = emojis;
-    for(let col = 0; col< size; row++){
+    let available = [...emojis];
+    for(let col = 0; col< size; col++){
+        console.log(row, col, available)
         let i = Math.floor(Math.random() * available.length); 
-        slots[col][row] = available[i];
+        slots[col][row].textContent = available[i];
         available.splice(i,1);
     }
   }
