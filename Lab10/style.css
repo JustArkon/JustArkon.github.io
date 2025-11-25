@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #D7B19D;
+    color: #402218;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#game {
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #865439;
+}
+
+.grid {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.slot {
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #C68B59;
+    border-radius: 10px;
+    aspect-ratio: 1;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    color: #D7B19D;
+}
+
+.slot.spinning {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+/* Кнопки */
+button {
+    flex: 1 1 45%;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    color: #D7B19D;
+    background: #865439;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #402218;
+}
+
+#win-message {
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .slot {
+        font-size: 32px;
+    }
+    button {
+        flex: 1 1 100%;
+    }
+}

@@ -1,0 +1,22 @@
+const easyDictionary = [
+  { en: "day", ua: "день" },
+  { en: "night", ua: "ніч" },
+  { en: "sun", ua: "сонце" },
+  { en: "moon", ua: "місяць" },
+  { en: "star", ua: "зірка" },
+  { en: "tree", ua: "дерево" },
+  { en: "flower", ua: "квітка" },
+  { en: "rain", ua: "дощ" },
+  { en: "snow", ua: "сніг" },
+  { en: "wind", ua: "вітер" },
+  { en: "mountain", ua: "гора" },
+  { en: "river", ua: "річка" },
+  { en: "sea", ua: "море" },
+  { en: "sky", ua: "небо" },
+  { en: "food", ua: "їжа" },
+  { en: "drink", ua: "напій" },
+  { en: "cold", ua: "холодо" },
+  { en: "hot", ua: "гаряче" },
+  { en: "fast", ua: "швидко" },
+  { en: "slow", ua: "повільно" }
+];
