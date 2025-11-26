@@ -248,9 +248,49 @@ body {
 .modal-btn.confirm:hover { background: #a00612; }
 
 @media (max-width: 650px) {
-  .container { flex-direction: column; width: 100%; }
-  .main-card { width: 100%; border-radius: 12px 12px 0 0; }
-  .side-panel { width: 100%; height: auto; flex-direction: row; justify-content: space-evenly; padding: 15px 20px; }
-  .side-panel .stat { font-size: 18px; padding: 8px 0; width: 50px; }
-  .side-panel .icon-btn, .left-panel .icon-btn { width: 45px; height: 45px; }
+  .container {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+
+
+  .left-panel {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 12px 12px 0 0;
+    padding: 15px;
+    box-shadow: none;
+    order: 1;
+  }
+
+  .main-card {
+    width: 100%;
+    border-radius: 0;
+    padding: 20px;
+    order: 2;
+  }
+
+  .side-panel {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 0 0 12px 12px;
+    padding: 15px;
+    order: 3;
+  }
+
+  .side-panel .stat,
+  .left-panel .diff-value {
+    font-size: 18px;
+  }
+
+  .side-panel .icon-btn,
+  .left-panel .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
 }
