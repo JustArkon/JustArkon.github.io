@@ -8,6 +8,10 @@ body {
   font-family: sans-serif;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .container {
   position: relative;
   display: flex;
@@ -27,7 +31,6 @@ body {
   justify-content: center;
   gap: 15px;
   padding: 20px 10px;
-  box-sizing: border-box;
 }
 
 .diff-label {
@@ -54,7 +57,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 25px;
-  box-sizing: border-box;
+  border-radius: 12px 0 0 12px;
 }
 
 .word-box {
@@ -67,7 +70,6 @@ body {
   align-items: center;
   box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
   transition: background-color 0.3s ease;
-  box-sizing: border-box;
 }
 
 .word-box.solved { background: #2fc007; }
@@ -78,6 +80,28 @@ body {
   text-align: center;
   color: #e0d9ff;
   word-wrap: break-word;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.answer-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid #9b59b6;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #1a0f2a;
+  color: #f0e6ff;
+  outline: none;
+}
+
+.answer-input:focus {
+  border-color: #d2b4de;
+  box-shadow: 0 0 8px rgba(155, 89, 182, 0.4);
 }
 
 .progress {
@@ -93,6 +117,7 @@ body {
   opacity: 0.7;
   color: #d1c4ff;
 }
+
 .arrow:hover { opacity: 1; }
 
 .side-panel {
@@ -104,7 +129,6 @@ body {
   align-items: center;
   gap: 15px;
   padding: 20px 10px;
-  box-sizing: border-box;
 }
 
 .stat {
@@ -116,8 +140,8 @@ body {
   color: white;
 }
 
-.correct { background: #2fc007; }
-.incorrect { background: #cf0818; }
+.stat.correct { background: #2fc007; }
+.stat.incorrect { background: #cf0818; }
 
 .icon-btn {
   width: 50px;
@@ -132,6 +156,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .icon-btn:hover { background: #6a2fa0; }
 
 .icon-btn img {
@@ -140,29 +165,23 @@ body {
   filter: brightness(0) invert(1);
 }
 
-.input-group {
-  width: 100%;
-  display: flex;
-  gap: 10px;
-  box-sizing: border-box;
-}
-
-.answer-input {
-  flex: 1;
-  padding: 10px 14px;
-  border: 2px solid #9b59b6;
-  border-radius: 6px;
-  font-size: 16px;
+.result-score-box {
   background: #1a0f2a;
-  color: #f0e6ff;
-  outline: none;
-  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #4b1a6b;
 }
 
-.answer-input:focus {
-  border-color: #d2b4de;
-  box-shadow: 0 0 8px rgba(155, 89, 182, 0.4);
-}
+.score-val.correct { color: #2fc007; }
+.score-val.total { color: #e0d9ff; }
+.divider { color: #9b59b6; opacity: 0.5; }
 
 .modal-overlay {
   position: fixed;
@@ -176,20 +195,17 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.modal-overlay.active {
-  display: flex;
-  opacity: 1;
-}
+.modal-overlay.active { display: flex; opacity: 1; }
 
 .modal-window {
   background: #2c0d3b;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  text-align: center;
   max-width: 90%;
   width: 350px;
   border: 1px solid #4b1a6b;
-  text-align: center;
   transform: scale(0.8);
   transition: transform 0.3s ease;
 }
@@ -222,8 +238,8 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
-  color: white;
   transition: transform 0.2s, background 0.2s;
+  color: white;
 }
 
 .modal-btn:active { transform: scale(0.95); }
@@ -234,32 +250,8 @@ body {
 
 @media (max-width: 650px) {
   .container { flex-direction: column; width: 100%; }
-
-  .left-panel {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-    border-radius: 12px 12px 0 0;
-    padding: 15px;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-  }
-
-  .main-card {
-    width: 100%;
-    border-radius: 0;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  }
-
-  .side-panel {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-evenly;
-    border-radius: 0 0 12px 12px;
-    padding: 15px 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  }
-
+  .main-card { width: 100%; border-radius: 12px 12px 0 0; }
+  .side-panel { width: 100%; height: auto; flex-direction: row; justify-content: space-evenly; border-radius: 0 0 12px 12px; padding: 15px 20px; }
   .side-panel .stat { font-size: 18px; padding: 8px 0; width: 50px; }
   .side-panel .icon-btn, .left-panel .icon-btn { width: 45px; height: 45px; }
 }

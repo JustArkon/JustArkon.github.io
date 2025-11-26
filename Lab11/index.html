@@ -27,7 +27,7 @@
     <div class="input-group">
       <input class="answer-input" type="text" placeholder="Введіть відповідь...">
       <button class="icon-btn" id="submit-btn">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNlbmQtaG9yaXpvbnRhbC1pY29uIGx1Y2lkZS1zZW5kLWhvcml6b250YWwiPjxwYXRoIGQ9Ik0zLjcxNCAzLjA0OGEuNDk4LjQ5OCAwIDAgMC0uNjgzLjYyN2wyLjg0MyA3LjYyN2EyIDIgMCAwIDEgMCAxLjM5NmwtMi44NDIgNy42MjdhLjQ5OC40OTggMCAwIDAgLjY4Mi42MjdsMTgtOC41YS41LjUgMCAwIDAgMC0uOTA0eiIvPjxwYXRoIGQ9Ik02IDEyaDE2Ii8+PC9zdmc+" alt="main page">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNlbmQtaG9yaXpvbnRhbC1pY29uIGx1Y2lkZS1zZW5kLWhvcml6b250YWwiPjxwYXRoIGQ9Ik0zLjcxNCAzLjA0OGEuNDk4LjQ5OCAwIDAgMC0uNjgzLjYyN2wyLjg0MyA3LjYyN2EyIDIgMCAwIDEgMCAxLjM5NmwtMi44NDIgNy42MjdhLjQ5OC40OTggMCAwIDAgLjY4Mi42MjdsMTgtOC41YS41LjUgMCAwIDAgMC0uOTA0eiIvPjxwYXRoIGQ9Ik02IDEyaDE2Ii8+PC9zdmc+" alt="submit">
       </button>
     </div>
   </div>
@@ -42,6 +42,7 @@
         <div class="stat incorrect">0</div>
     </div>
 </div>
+
 <div class="modal-overlay" id="exit-modal">
   <div class="modal-window">
     <div class="modal-text">Ви дійсно хочете перейти на головну?</div>
@@ -49,6 +50,24 @@
     <div class="modal-buttons">
       <button class="modal-btn cancel" id="modal-cancel">Ні, залишитись</button>
       <button class="modal-btn confirm" id="modal-confirm">Так, вийти</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="results-modal">
+  <div class="modal-window">
+    <div class="modal-text">Тест завершено!</div>
+    <p class="modal-subtext">Ваш результат:</p>
+    
+    <div class="result-score-box">
+       <span class="score-val correct" id="final-correct">0</span>
+       <span class="divider">/</span>
+       <span class="score-val total" id="final-total">10</span>
+    </div>
+
+    <div class="modal-buttons">
+      <button class="modal-btn cancel" id="res-menu-btn">Меню</button>
+      <button class="modal-btn confirm" id="res-restart-btn">Ще раз</button>
     </div>
   </div>
 </div>

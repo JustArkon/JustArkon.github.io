@@ -48,6 +48,18 @@ function showWord(index) {
   }
 }
 
+function checkCompletion() {
+    const solved = quiz.filter(w => w.status === "solved").length;
+    const failed = quiz.filter(w => w.status === "failed").length;
+    const totalDone = solved + failed;
+
+    if (totalDone === words) {
+        $("#final-correct").text(solved);
+        $("#final-total").text(words);
+        $("#results-modal").addClass("active");
+    }
+}
+
 function checkAnswer() {
   const rawValue = input.val().trim();
   input.val("");
@@ -70,6 +82,8 @@ function checkAnswer() {
 
   showWord(currentIndex);
   input.val(answer); 
+
+  checkCompletion();
 }
 
 function nextWord() {
@@ -95,6 +109,8 @@ function restart() {
   $(".diff-value").text(currentLevel);
   
   showWord(currentIndex);
+
+  $("#results-modal").removeClass("active");
 }
 
 function increaseDiff() {
@@ -139,6 +155,10 @@ function main() {
       }
   });
 
+  $("#res-restart-btn").on("click", restart);
+  $("#res-menu-btn").on("click", function() {
+      window.location.href = "../index.html";
+  });
 }
 
 $(document).ready(main);
