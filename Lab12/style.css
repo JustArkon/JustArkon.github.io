@@ -57,7 +57,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 25px;
-  border-radius: 12px 0 0 12px;
 }
 
 .word-box {
@@ -251,7 +250,7 @@ body {
 @media (max-width: 650px) {
   .container { flex-direction: column; width: 100%; }
   .main-card { width: 100%; border-radius: 12px 12px 0 0; }
-  .side-panel { width: 100%; height: auto; flex-direction: row; justify-content: space-evenly; border-radius: 0 0 12px 12px; padding: 15px 20px; }
+  .side-panel { width: 100%; height: auto; flex-direction: row; justify-content: space-evenly; padding: 15px 20px; }
   .side-panel .stat { font-size: 18px; padding: 8px 0; width: 50px; }
   .side-panel .icon-btn, .left-panel .icon-btn { width: 45px; height: 45px; }
 }
