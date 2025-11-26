@@ -1,0 +1,156 @@
+body {
+    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0d9ff;
+    margin: 0;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #d1c4ff;
+    text-shadow: 0 0 20px rgba(209, 196, 255, 0.4);
+    font-weight: 700;
+}
+
+.card {
+    background-color: #2c0d3b;
+    border: 1px solid #4b1a6b;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 0 30px rgba(0,0,0,0.35);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #6a2fa0;
+    box-shadow: 0 0 35px rgba(0,0,0,0.5);
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #4b1a6b;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    opacity: 1;
+}
+
+.card-title {
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.card-text {
+    color: #d1c4ff;
+    font-size: 0.9rem;
+}
+
+.btn-purple {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: transparent;
+    border: 1px solid #6a2fa0;
+    color: #d1c4ff;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn-purple:hover {
+    background-color: #4b1a6b;
+    color: #fff;
+    border-color: #4b1a6b;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-window {
+    background: #2c0d3b;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    text-align: center;
+    max-width: 90%;
+    width: 350px;
+    border: 1px solid #4b1a6b;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-window {
+    transform: scale(1);
+}
+
+.modal-text {
+    font-size: 20px;
+    color: #e0d9ff;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.modal-subtext {
+    font-size: 14px;
+    color: #d1c4ff;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, background 0.2s;
+    color: white;
+}
+
+.modal-btn:active {
+    transform: scale(0.95);
+}
+
+.modal-btn.cancel {
+    background: #4b1a6b;
+}
+.modal-btn.cancel:hover {
+    background: #6a2fa0;
+}
+
+.modal-btn.confirm {
+    background: #cf0818;
+}
+.modal-btn.confirm:hover {
+    background: #a00612;
+}
